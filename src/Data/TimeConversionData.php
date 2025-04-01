@@ -2,6 +2,14 @@
 
 namespace Adarsh\Unitly\Data;
 
+/**
+ * Time Conversion Factors Data
+ * 
+ * This file contains conversion factors for various units of time. Each entry represents 
+ * the conversion factors to and from other common time units, allowing for accurate unit 
+ * conversions between time measurements
+ * 
+ */
 return [
     'nanosecond' => [
         'microsecond' => 1 / 1000,

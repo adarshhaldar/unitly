@@ -2,6 +2,14 @@
 
 namespace Adarsh\Unitly\Data;
 
+/**
+ * Weight Conversion Factors Data
+ * 
+ * This file contains conversion factors for various units of weight. Each entry represents 
+ * the conversion factors to and from other common time units, allowing for accurate unit 
+ * conversions between time measurements.
+ * 
+ */
 return [
     'ounce' => [
         'pound' => 1 / 16,
