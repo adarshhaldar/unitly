@@ -1,0 +1,9 @@
+{
+    "name": "adarsh/unitly",
+    "autoload": {
+        "psr-4": {
+            "Adarsh\\Unitly\\": "src/"
+        }
+    },
+    "require": {}
+}
