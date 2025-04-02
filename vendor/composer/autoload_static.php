@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInitee4a3d83da581a1dd8d3456b3a6459bf
 {
     public static $prefixLengthsPsr4 = array (
-        'A' => 
+        'U' => 
         array (
-            'Adarsh\\Unitly\\' => 14,
+            'Unitly\\' => 7,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Adarsh\\Unitly\\' => 
+        'Unitly\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

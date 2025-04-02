@@ -1,11 +1,11 @@
 {
-    "name": "adarsh/unitly",
+    "name": "adarshgit/unitly",
     "description": "A unit conversion library for PHP",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Adarsh\\Unitly\\": "src/"
+            "Unitly\\": "src/"
         }
     },
     "authors": [

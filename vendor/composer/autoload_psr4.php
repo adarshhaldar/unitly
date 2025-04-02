@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Adarsh\\Unitly\\' => array($baseDir . '/src'),
+    'Unitly\\' => array($baseDir . '/src'),
 );

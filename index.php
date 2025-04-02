@@ -2,8 +2,8 @@
 
 require_once './vendor/autoload.php';
 
-use Adarsh\Unitly\Convertors\TimeConvertor;
-use Adarsh\Unitly\Unitly;
+use Unitly\Convertors\TimeConvertor;
+use Unitly\Unitly;
 
 try {
     $unitly = new Unitly();

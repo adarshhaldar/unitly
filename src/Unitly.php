@@ -1,11 +1,11 @@
 <?php
 
-namespace Adarsh\Unitly;
+namespace Unitly;
 
-use Adarsh\Unitly\Convertors\PlaneAngleConvertor;
-use Adarsh\Unitly\Convertors\TemperatureConvertor;
-use Adarsh\Unitly\Convertors\TimeConvertor;
-use Adarsh\Unitly\Convertors\WeightConvertor;
+use Unitly\Convertors\PlaneAngleConvertor;
+use Unitly\Convertors\TemperatureConvertor;
+use Unitly\Convertors\TimeConvertor;
+use Unitly\Convertors\WeightConvertor;
 
 /**
  * Unitly Class

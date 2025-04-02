@@ -1,6 +1,6 @@
 <?php
 
-namespace Adarsh\Unitly\Convertors;
+namespace Unitly\Convertors;
 
 use Exception;
 

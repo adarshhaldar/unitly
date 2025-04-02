@@ -1,8 +1,8 @@
 <?php
 
-namespace Adarsh\Unitly\Convertors;
+namespace Unitly\Convertors;
 
-use Adarsh\Unitly\Convertors\BaseConvertor;
+use Unitly\Convertors\BaseConvertor;
 
 /**
  * TemperatureConvertor Class

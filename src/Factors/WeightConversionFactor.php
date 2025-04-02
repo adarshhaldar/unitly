@@ -1,6 +1,6 @@
 <?php
 
-namespace Adarsh\Unitly\Factors;
+namespace Unitly\Factors;
 
 /**
  * Weight Conversion Factors
