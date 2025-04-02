@@ -15,6 +15,10 @@ If the above command does not work, try:
 composer require adarshgit/unitly:dev-main
 ```
 
+Make sure that the autoload file from Composer is loaded.
+```php
+require 'vendor/autoload.php';
+```
 ## Usage
 
 Unitly allows multiple approaches to using its conversion functionalities. Below are examples of different ways you can use the library.
