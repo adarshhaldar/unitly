@@ -20,7 +20,7 @@ class TimeConvertor extends BaseConvertor
      */
     public function __construct()
     {
-        parent::__construct(require 'src/Factors/TimeConversionFactor.php');
+        parent::__construct(require __DIR__ . '/../Factors/TimeConversionFactor.php');
     }
 
     /**

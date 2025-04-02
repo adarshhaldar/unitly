@@ -20,7 +20,7 @@ class WeightConvertor extends BaseConvertor
      */
     public function __construct()
     {
-        parent::__construct(require 'src/Factors/WeightConversionFactor.php');
+        parent::__construct(require __DIR__ . '/../Factors/WeightConversionFactor.php');
     }
 
     /**

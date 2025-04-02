@@ -20,7 +20,7 @@ class PlaneAngleConvertor extends BaseConvertor
      */
     public function __construct()
     {
-        parent::__construct(require 'src/Factors/PlaneAngleConversionFactor.php');
+        parent::__construct(require __DIR__ . '/../Factors/PlaneAngleConversionFactor.php');
     }
 
     /**
