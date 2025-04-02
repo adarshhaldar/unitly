@@ -20,7 +20,7 @@ class TimeConvertor extends BaseConvertor
      */
     public function __construct()
     {
-        parent::__construct(require 'src/Data/TimeConversionData.php');
+        parent::__construct(require 'src/Factors/TimeConversionFactor.php');
     }
 
     /**
@@ -30,7 +30,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function nanosecond($nanosecond = null)
+    public function nanosecond($nanosecond = null): self
     {
         $this->handleConversion('nanosecond', $nanosecond);
         return $this;
@@ -43,7 +43,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function microsecond($microsecond = null)
+    public function microsecond($microsecond = null): self
     {
         $this->handleConversion('microsecond', $microsecond);
         return $this;
@@ -56,7 +56,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function millisecond($millisecond = null)
+    public function millisecond($millisecond = null): self
     {
         $this->handleConversion('millisecond', $millisecond);
         return $this;
@@ -69,7 +69,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function second($second = null)
+    public function second($second = null): self
     {
         $this->handleConversion('second', $second);
         return $this;
@@ -82,7 +82,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function minute($minute = null)
+    public function minute($minute = null): self
     {
         $this->handleConversion('minute', $minute);
         return $this;
@@ -95,7 +95,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function hour($hour = null)
+    public function hour($hour = null): self
     {
         $this->handleConversion('hour', $hour);
         return $this;
@@ -108,7 +108,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function day($day = null)
+    public function day($day = null): self
     {
         $this->handleConversion('day', $day);
         return $this;
@@ -121,7 +121,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function week($week = null)
+    public function week($week = null): self
     {
         $this->handleConversion('week', $week);
         return $this;
@@ -134,7 +134,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function month($month = null)
+    public function month($month = null): self
     {
         $this->handleConversion('month', $month);
         return $this;
@@ -147,7 +147,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function year($year = null)
+    public function year($year = null): self
     {
         $this->handleConversion('year', $year);
         return $this;
@@ -160,7 +160,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function decade($decade = null)
+    public function decade($decade = null): self
     {
         $this->handleConversion('decade', $decade);
         return $this;
@@ -173,7 +173,7 @@ class TimeConvertor extends BaseConvertor
      * 
      * @return self
      */
-    public function century($century = null)
+    public function century($century = null): self
     {
         $this->handleConversion('century', $century);
         return $this;

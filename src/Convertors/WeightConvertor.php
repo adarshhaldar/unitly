@@ -20,7 +20,7 @@ class WeightConvertor extends BaseConvertor
      */
     public function __construct()
     {
-        parent::__construct(require 'src/Data/WeightConversionData.php');
+        parent::__construct(require 'src/Factors/WeightConversionFactor.php');
     }
 
     /**
@@ -72,7 +72,7 @@ class WeightConvertor extends BaseConvertor
      */
     public function usTon($usTon = null)
     {
-        $this->handleConversion('us_ton', $usTon);
+        $this->handleConversion('us ton', $usTon);
         return $this;
     }
 
@@ -85,7 +85,7 @@ class WeightConvertor extends BaseConvertor
      */
     public function imperialTon($imperialTon = null)
     {
-        $this->handleConversion('imperial_ton', $imperialTon);
+        $this->handleConversion('imperial ton', $imperialTon);
         return $this;
     }
 

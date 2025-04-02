@@ -70,6 +70,50 @@ class BaseConvertor
     }
 
     /**
+     * Converts a given value from one unit to another
+     * 
+     * @param mixed $value The numerical value to convert
+     * @param string $from The unit type to convert from
+     * @param string $to The unit type to convert to
+     * @param int $precision The number of decimal places for formatting
+     * 
+     * @return float|int
+     */
+    public function convert(mixed $value, string $from, string $to, int $precision = 0): float|int
+    {
+        $from = strtolower($from);
+        $to = strtolower($to);
+
+        $this->validateConversionTypes($from, $to);
+        $this->validateValue($value);
+
+        $result = $value * ($this->conversions[$from][$to] ?? 1);
+
+        return $precision > 0 ? (($result < pow(10, -$precision)) ? sprintf('%.' . $precision . 'e', $result) : sprintf('%.' . $precision . 'f', $result)) : $result;
+    }
+
+    /**
+     * Validates conversion types
+     * 
+     * @param string $from The unit type being converted from
+     * @param string $to The unit type being converted to
+     */
+    private function validateConversionTypes(string $from, string $to): void
+    {
+        if (!isset($this->conversions[$from])) {
+            throw new Exception(ucfirst(strtolower($from)) . ' type is invalid');
+        }
+
+        if (!isset($this->conversions[$to])) {
+            throw new Exception(ucfirst(strtolower($to)) . ' type is invalid');
+        }
+
+        if (!isset($this->conversions[$from][$to])) {
+            throw new Exception(ucfirst(strtolower($from)) . ' to ' . ucfirst(strtolower($to)) . ' conversion is out of bound');
+        }
+    }
+
+    /**
      * Performs the unit conversion and stores the result
      * 
      * @param string $type The unit type to convert to
@@ -77,9 +121,9 @@ class BaseConvertor
      * 
      * @return void
      */
-    protected function handleConversion($type, $value)
+    protected function handleConversion(string $type, mixed $value): void
     {
-        $this->validateValue($value);
+        $value ? $this->validateValue($value) : true;
         $this->setTypes($type, $value);
 
         if ($this->fromType != $this->toType) {
@@ -89,7 +133,7 @@ class BaseConvertor
 
             $value = $value == null ? $this->result : $value;
 
-            $this->result = $value * ($this->conversions[$this->fromType][$this->toType] ?? 1);
+            $this->result = eval('return ' . str_replace(':value', $value, $this->conversions[$this->fromType][$this->toType]) . ';');
         } else {
             $this->result = $value ?? $this->result;
         }
@@ -102,7 +146,7 @@ class BaseConvertor
      * 
      * @return void
      */
-    private function validateValue($value)
+    private function validateValue(mixed $value): void
     {
         if (is_string($value)) {
             is_numeric($value) && !preg_match('/[^\d\.\-]/', $value) ?? throw new Exception('Only numeric value are accepted');
@@ -119,9 +163,8 @@ class BaseConvertor
      * 
      * @return void
      */
-    private function setTypes($type, $value)
+    private function setTypes(string $type, mixed $value): void
     {
-
         if ($this->initialConversionType == null && $value) {
             $this->initialConversionType = $this->fromType = $this->toType = $type;
         } else {
@@ -135,31 +178,43 @@ class BaseConvertor
     /**
      * Function to return the result
      * 
-     * @param int $decimal The number of decimal places for formatting
+     * @param int $precision The number of decimal places for formatting
      * 
      * @return mixed
      */
-    public function unify(int $decimal = 0)
+    public function unify(int $precision = 0): mixed
     {
         if (!$this->hasInput) {
             throw new Exception('Need a value to convert');
         }
 
-        if ($decimal < 0) {
+        if ($precision < 0) {
             throw new Exception('Decimal point can not be negative');
         }
 
         $result = $this->result ?? 0;
-        return $decimal > 0 ? (($result < pow(10, -$decimal)) ? sprintf('%.' . $decimal . 'e', $result) : sprintf('%.' . $decimal . 'f', $result)) : $result;
+
+        return $precision > 0 ? (($result < pow(10, -$precision)) ? sprintf('%.' . $precision . 'e', $result) : sprintf('%.' . $precision . 'f', $result)) : $result;
+    }
+
+    /**
+     * Get list of unit types for conversion
+     * 
+     * @return array
+     */
+    public function getUnitTypes(): array
+    {
+        return array_map(function ($unitType) {
+            return ucfirst(strtolower($unitType));
+        }, array_keys($this->conversions));
     }
 
     /**
      * Resets all stored conversion data, allowing a fresh conversion
      * 
-     * 
      * @return void
      */
-    public function clear()
+    public function clear(): void
     {
         $this->fromType = $this->toType = $this->result = $this->hasInput = $this->initialConversionType = null;
     }

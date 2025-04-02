@@ -2,6 +2,8 @@
 
 namespace Adarsh\Unitly;
 
+use Adarsh\Unitly\Convertors\PlaneAngleConvertor;
+use Adarsh\Unitly\Convertors\TemperatureConvertor;
 use Adarsh\Unitly\Convertors\TimeConvertor;
 use Adarsh\Unitly\Convertors\WeightConvertor;
 
@@ -55,5 +57,45 @@ class Unitly
     public static function weight()
     {
         return new WeightConvertor();
+    }
+
+    /**
+     * Returns an instance of the TemperatureConvertor class.
+     * 
+     * @return TemperatureConvertor
+     */
+    public function unifyTemperature()
+    {
+        return new TemperatureConvertor();
+    }
+
+    /**
+     * Static method to return an instance of the TemperatureConvertor class.
+     * 
+     * @return TemperatureConvertor
+     */
+    public static function temperature()
+    {
+        return new TemperatureConvertor();
+    }
+
+    /**
+     * Returns an instance of the PlaneAngleConvertor class.
+     * 
+     * @return PlaneAngleConvertor
+     */
+    public function unifyPlaneAngle()
+    {
+        return new PlaneAngleConvertor();
+    }
+
+    /**
+     * Static method to return an instance of the PlaneAngleConvertor class.
+     * 
+     * @return PlaneAngleConvertor
+     */
+    public static function planeAngle()
+    {
+        return new PlaneAngleConvertor();
     }
 }

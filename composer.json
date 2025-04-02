@@ -1,9 +1,18 @@
 {
     "name": "adarsh/unitly",
+    "description": "A unit conversion library for PHP",
+    "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Adarsh\\Unitly\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "Adarsh Haldar",
+            "email": "hadarsh04@gmail.com"
+        }
+    ],
     "require": {}
 }

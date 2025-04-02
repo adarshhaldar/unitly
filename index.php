@@ -2,15 +2,29 @@
 
 require_once './vendor/autoload.php';
 
+use Adarsh\Unitly\Convertors\TimeConvertor;
 use Adarsh\Unitly\Unitly;
 
 try {
     $unitly = new Unitly();
-    $timeUnitly = $unitly->unifyTime();
-    $weightUnitly = $unitly->unifyWeight();
-    echo $timeUnitly->nanosecond(1)->century()->unify(1)."\n";
-    echo $weightUnitly->gram(1001)->kilogram()->unify(2.2);
+    $unitlyTimeConvertor = $unitly->time();
+    echo $unitlyTimeConvertor->second(60)->minute()->unify();
+    echo "\n";
 
+    $unitlyTimeConvertor = Unitly::time();
+    echo $unitlyTimeConvertor->day(1)->hour()->unify();
+    echo "\n";
+
+    $unitlyTimeConvertor = new TimeConvertor();
+    echo $unitlyTimeConvertor->month(24)->year()->unify();
+    echo "\n";
+
+    $unitlyWeightConvertor = $unitly->weight();
+    $firstRound = $unitlyWeightConvertor->gram(10000)->kilogram();
+    echo "Grams to kilograms: " . $firstRound->unify();
+    echo "\n";
+    $secondRound = $firstRound->tonne();
+    echo "Kilograms to tonnes: " . $secondRound->unify();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
