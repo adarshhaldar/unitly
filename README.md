@@ -10,11 +10,6 @@ To install Unitly, use Composer:
 composer require adarshgit/unitly
 ```
 
-If the above command does not work, try:
-```sh
-composer require adarshgit/unitly:dev-main
-```
-
 Make sure that the autoload file from Composer is loaded.
 ```php
 require 'vendor/autoload.php';
