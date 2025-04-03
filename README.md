@@ -7,7 +7,7 @@ Unitly is a PHP library for converting units of measurement, such as time and we
 To install Unitly, use Composer:
 
 ```sh
-composer require adarshgit/unitly
+composer require adarshhaldar/unitly
 ```
 
 Make sure that the autoload file from Composer is loaded.
