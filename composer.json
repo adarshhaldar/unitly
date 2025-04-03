@@ -1,6 +1,7 @@
 {
-    "name": "adarshgit/unitly",
+    "name": "adarshhaldar/unitly",
     "description": "A unit conversion library for PHP",
+    "version": "1.0.0",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -11,8 +12,17 @@
     "authors": [
         {
             "name": "Adarsh Haldar",
-            "email": "hadarsh04@gmail.com"
+            "email": "hadarsh04@gmail.com",
+            "role": "Developer"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=5.6"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adarshhaldar/unitly.git"
+        }
+    ]
 }
