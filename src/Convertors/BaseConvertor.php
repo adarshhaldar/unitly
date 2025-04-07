@@ -87,7 +87,7 @@ class BaseConvertor
         $this->validateConversionTypes($from, $to);
         $this->validateValue($value);
 
-        $result = $value * ($this->conversions[$from][$to] ?? 1);
+        $result = eval('return ' . str_replace(':value', $value, $this->conversions[$from][$to]) . ';');
 
         return $precision > 0 ? (($result < pow(10, -$precision)) ? sprintf('%.' . $precision . 'e', $result) : sprintf('%.' . $precision . 'f', $result)) : $result;
     }
@@ -194,6 +194,7 @@ class BaseConvertor
 
         $result = $this->result ?? 0;
 
+        $this->clear();
         return $precision > 0 ? (($result < pow(10, -$precision)) ? sprintf('%.' . $precision . 'e', $result) : sprintf('%.' . $precision . 'f', $result)) : $result;
     }
 
@@ -214,7 +215,7 @@ class BaseConvertor
      * 
      * @return void
      */
-    public function clear(): void
+    private function clear(): void
     {
         $this->fromType = $this->toType = $this->result = $this->hasInput = $this->initialConversionType = null;
     }
